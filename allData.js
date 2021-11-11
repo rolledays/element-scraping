@@ -2,9 +2,11 @@
 const get = require('got')
 const express = require('express')
 const cheerio = require('cheerio')
+const jsonType = require('json-type-personal') 
 const axios = require('axios');*/
 
 // Wattpad scraper 
+const res = jsonType-compenentofData
 const req = jsonType-compenentofUrl
 const query = req.query.q
 function wattpadSearch(query) {
