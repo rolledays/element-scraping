@@ -5,6 +5,7 @@ const cheerio = require('cheerio')
 const axios = require('axios');*/
 
 // Wattpad scraper 
+const query = req.query.q
 function wattpadSearch(query) {
       axios.get('https://www.wattpad.com/search/' + query).then(({ data }) => {
       const $ = cheerio.load(data)
