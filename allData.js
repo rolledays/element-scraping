@@ -9,8 +9,7 @@ const axios = require('axios');*/
 const res = jsonType-compenentofData
 const req = jsonType-compenentofUrl
 const query = req.query.q
-function wattpadSearch(query) {
-      axios.get('https://www.wattpad.com/search/' + query).then(({ data }) => {
+     axios.get('https://www.wattpad.com/search/' + query).then(({ data }) => {
       const $ = cheerio.load(data)
       let title = []
       let url = []
@@ -25,6 +24,42 @@ function wattpadSearch(query) {
       id.push($(rest).attr('data-id'))
       })
      
+// LazyMedians scraper
+const res = jsonType-compenentofData
+const req = jsonType-compenentofUrl
+const query = req.query.q
+axios.get('https://thelazy.media/?s=' + q)
+.then(({ data }) => {
+     const $ = cheerio.load(data)
+     let title = []
+     let url = []
+     let img = []
+     let type = []
+     let author = []
+     let upload =[]
+     let comment = []
+ 	$('div.td_module_16 > div.td-module-thumb > a').get().map((rest) => {
+         url.push($(rest).attr('href'))
+         })
+         $('div.td_module_16 > div.td-module-thumb > a').get().map((rest) => {
+        title.push($(rest).attr('title'))
+         })
+         $('div.td_module_16 > div.td-module-thumb > a > img').get().map((rest) => {
+        img.push($(rest).attr('src'))
+         })
+    $('div.td_module_16 > div.item-details > div.td-module-meta-info > a').get().map((rest) => {
+        type.push($(rest).text())
+         })
+     $('div.td_module_16 > div.item-details > div.td-module-meta-info > span > a').get().map((rest) => {
+             author.push($(rest).text())
+              })
+     $('div.td_module_16 > div.item-details > div.td-module-meta-info > span > time').get().map((rest) => {
+          upload.push($(rest).text())
+             })
+     $('div.td_module_16 > div.item-details > div.td-module-meta-info > div > a').get().map((rest) => {
+         comment.push($(rest).text())
+              })
+
 // Detiknews scraper
 axios.get('https://news.detik.com/ajax/mostpopular')
 .then(({ data }) => {
