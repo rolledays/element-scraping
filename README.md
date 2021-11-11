@@ -1,2 +1,3 @@
 # element-scraping
-Free for all
+Wadohhhh gw lupa cara buat readme
+
